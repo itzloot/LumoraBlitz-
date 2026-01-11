@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LumoraBlitz | Premium Code Library</title>
+    <title>LumoraBlitz | 25 Premium Templates</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body { background-color: #09090b; color: white; font-family: system-ui, -apple-system, sans-serif; overflow-x: hidden; }
-        .card-hover:hover { transform: translateY(-5px); border-color: #3b82f6; box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3); }
-        /* Custom Scrollbar for Code Editor */
+        .card-hover:hover { transform: translateY(-4px); border-color: #3b82f6; box-shadow: 0 12px 40px -12px rgba(59, 130, 246, 0.25); }
+        .filter-btn.active { background-color: white; color: black; border-color: white; }
+        
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #18181b; }
         ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
@@ -23,107 +25,90 @@
         <nav class="sticky top-0 z-40 w-full bg-zinc-950/80 backdrop-blur-md border-b border-white/5">
             <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                 <a href="#" onclick="window.location.reload()" class="flex items-center gap-2">
-                    <div class="bg-blue-600 p-1.5 rounded-lg">
-                        <i data-lucide="zap" class="w-5 h-5 text-white"></i>
-                    </div>
+                    <div class="bg-blue-600 p-1.5 rounded-lg"><i data-lucide="zap" class="w-5 h-5 text-white"></i></div>
                     <span class="text-xl font-bold tracking-tight">Lumora<span class="text-blue-500">Blitz</span></span>
                 </a>
 
                 <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
                     <a href="#" class="hover:text-white transition">Home</a>
-                    <a href="#" class="hover:text-white transition">About</a>
-                    <a href="#" class="text-white">Templates</a>
+                    <a href="#" class="hover:text-white transition">License</a>
+                    <a href="#" class="text-white">Templates (25)</a>
                 </div>
 
-                <div class="hidden md:block">
-                    <a href="https://discord.com/users/1329835276020748321" target="_blank" class="bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-zinc-200 transition flex items-center gap-2">
+                <div class="flex items-center gap-3">
+                    <a href="https://discord.com/users/1329835276020748321" target="_blank" class="hidden md:flex bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-zinc-200 transition items-center gap-2">
                         <i data-lucide="message-circle" class="w-4 h-4"></i> Contact Dev
                     </a>
+                    <button onclick="toggleMenu()" class="md:hidden text-white p-2"><i data-lucide="menu" class="w-6 h-6"></i></button>
                 </div>
-
-                <button onclick="toggleMenu()" class="md:hidden text-white p-2">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
             </div>
 
-            <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-zinc-950">
-                <div class="flex flex-col p-4 gap-4 text-sm font-medium text-zinc-400">
-                    <a href="#" class="hover:text-white">Home</a>
-                    <a href="#" class="hover:text-white">About</a>
-                    <a href="#" class="text-white">Templates</a>
-                    <a href="https://discord.com/users/1329835276020748321" target="_blank" class="text-blue-400">Contact Dev</a>
-                </div>
+            <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-zinc-950 p-4 flex flex-col gap-4 text-sm font-medium text-zinc-400">
+                <a href="#" class="hover:text-white">Home</a>
+                <a href="#" class="hover:text-white">License</a>
+                <a href="https://discord.com/users/1329835276020748321" target="_blank" class="text-blue-400">Contact Dev</a>
             </div>
         </nav>
 
-        <section class="pt-20 pb-12 px-6 text-center relative overflow-hidden">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-blue-600/10 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
-
+        <section class="pt-20 pb-8 px-6 text-center relative overflow-hidden">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-600/10 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
             <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
-                Build Faster.<br>Code Better.
+                25 Premium Templates.<br>Zero Cost.
             </h1>
-            <p class="text-zinc-400 text-lg max-w-xl mx-auto mb-10">
-                Production-ready Tailwind CSS templates. <br>
-                <b>100% Free.</b> No hidden fees. Just copy & paste.
+            <p class="text-zinc-400 text-lg max-w-xl mx-auto mb-8">
+                Professional Tailwind CSS layouts for every use case. <br>
+                SaaS, Agency, Portfolio, E-commerce, and more.
             </p>
 
-            <div class="max-w-md mx-auto relative group">
-                <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-blue-500 transition"></i>
-                <input 
-                    type="text" 
-                    id="searchInput"
-                    onkeyup="filterTemplates()" 
-                    placeholder="Search templates (e.g. SaaS, Agency)..." 
-                    class="w-full bg-zinc-900/50 border border-white/10 rounded-full py-3 pl-12 pr-6 text-white placeholder-zinc-500 focus:outline-none focus:border-blue-500/50 focus:bg-zinc-900 transition-all shadow-xl"
-                >
+            <div class="max-w-2xl mx-auto space-y-6">
+                <div class="relative group">
+                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 group-focus-within:text-blue-500 transition"></i>
+                    <input type="text" id="searchInput" onkeyup="filterTemplates()" placeholder="Search 25 templates..." class="w-full bg-zinc-900/50 border border-white/10 rounded-full py-3 pl-12 pr-6 text-white focus:outline-none focus:border-blue-500/50 focus:bg-zinc-900 transition-all shadow-xl">
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-2" id="filterContainer">
+                    <button onclick="setCategory('All')" class="filter-btn active px-4 py-1.5 rounded-full text-xs font-bold border border-white/10 text-zinc-400 hover:text-white transition">All</button>
+                    <button onclick="setCategory('SaaS')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold border border-white/10 text-zinc-400 hover:text-white transition">SaaS</button>
+                    <button onclick="setCategory('Portfolio')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold border border-white/10 text-zinc-400 hover:text-white transition">Portfolio</button>
+                    <button onclick="setCategory('Agency')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold border border-white/10 text-zinc-400 hover:text-white transition">Agency</button>
+                    <button onclick="setCategory('E-Commerce')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold border border-white/10 text-zinc-400 hover:text-white transition">E-Commerce</button>
+                    <button onclick="setCategory('App')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-bold border border-white/10 text-zinc-400 hover:text-white transition">App</button>
+                </div>
             </div>
         </section>
 
         <main class="max-w-7xl mx-auto px-6 pb-24 w-full">
             <div id="gridContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 </div>
-            
-            <div id="noResults" class="hidden text-center py-20 text-zinc-500 border border-dashed border-white/10 rounded-2xl">
-                No templates found matching your search.
-            </div>
+            <div id="noResults" class="hidden text-center py-20 text-zinc-500 border border-dashed border-white/10 rounded-2xl">No templates found.</div>
         </main>
         
         <footer class="mt-auto text-center text-zinc-600 text-sm py-8 border-t border-white/5">
-            &copy; 2024 LumoraBlitz. Built by Fahad Malik.
+            &copy; 2024 LumoraBlitz. All 25 Templates are Open Source.
         </footer>
     </div>
 
     <div id="previewView" class="hidden fixed inset-0 z-50 bg-zinc-950 flex flex-col h-screen w-screen animate-in fade-in duration-200">
-        
         <nav class="h-16 border-b border-white/10 flex items-center justify-between px-4 md:px-6 bg-zinc-950 flex-shrink-0">
             <button onclick="closePreview()" class="flex items-center gap-2 text-zinc-400 hover:text-white transition text-sm font-bold bg-zinc-900/50 px-3 py-2 rounded-lg border border-white/5 hover:bg-zinc-800">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i> <span class="hidden md:inline">Back</span>
             </button>
-            
             <div class="flex flex-col items-center">
                 <h1 id="previewTitle" class="font-bold text-sm md:text-base text-white">Loading...</h1>
                 <span class="text-[10px] text-zinc-500 hidden md:block">Live Preview Mode</span>
             </div>
-
-            <div class="flex gap-2">
-                <button onclick="toggleCodePanel()" class="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm font-bold shadow-lg shadow-blue-900/20 transition text-white">
-                    <i data-lucide="code-2" class="w-4 h-4"></i> <span id="btnText">Get Code</span>
-                </button>
-            </div>
+            <button onclick="toggleCodePanel()" class="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm font-bold shadow-lg shadow-blue-900/20 transition text-white">
+                <i data-lucide="code-2" class="w-4 h-4"></i> <span id="btnText">Get Code</span>
+            </button>
         </nav>
-
         <div class="flex-1 flex relative overflow-hidden">
             <div class="flex-1 bg-zinc-900 relative w-full h-full">
                 <iframe id="previewFrame" class="w-full h-full border-none bg-white"></iframe>
             </div>
-
             <div id="codePanel" class="hidden absolute inset-0 bg-zinc-950/95 backdrop-blur-xl z-50 flex flex-col p-4 md:p-8 transition-all duration-300">
                 <div class="max-w-6xl mx-auto w-full h-full flex flex-col">
                     <div class="flex justify-between items-center mb-4">
-                        <div>
-                            <h2 class="text-2xl font-bold text-white">Source Code</h2>
-                            <p class="text-zinc-500 text-sm">Copy this into an index.html file.</p>
-                        </div>
+                        <h2 class="text-2xl font-bold text-white">Source Code</h2>
                         <button onclick="toggleCodePanel()" class="p-2 bg-zinc-800 rounded-full hover:bg-zinc-700 text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
                     </div>
                     <div class="flex-1 bg-[#1e1e1e] border border-white/10 rounded-xl overflow-hidden relative group shadow-2xl">
@@ -138,58 +123,143 @@
     </div>
 
     <script>
-        // --- 1. THE BIG TEMPLATES DATABASE ---
-        // I have minified the complex HTML to fit nicely here.
-        const templatesData = {
-            'saas': {
-                title: 'SaaS Elevate', tag: 'Landing Page', color: 'blue',
-                desc: 'A complete, high-converting landing page for startups with pricing and features.',
-                code: `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>SaaS Elevate</title><script src="https://cdn.tailwindcss.com"><\/script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"><style>body{font-family:'Inter',sans-serif}.gradient-text{background:linear-gradient(to right,#4f46e5,#9333ea);-webkit-background-clip:text;-webkit-text-fill-color:transparent}<\/style></head><body class="bg-white text-slate-900"><nav class="fixed w-full bg-white/80 backdrop-blur-md border-b border-slate-100 z-50"><div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"><span class="font-bold text-xl tracking-tight text-indigo-600">Elevate.</span><div class="hidden md:flex gap-8 text-sm font-medium text-slate-600"><a href="#" class="hover:text-indigo-600">Features</a><a href="#" class="hover:text-indigo-600">Pricing</a></div><button class="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-700">Get Started</button></div></nav><header class="pt-32 pb-20 px-6 text-center max-w-5xl mx-auto"><span class="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold mb-6">v2.0 LIVE</span><h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">Manage your startup<br>with <span class="gradient-text">intelligent tools.</span></h1><p class="text-lg text-slate-500 max-w-2xl mx-auto mb-10">Stop using spreadsheets. Elevate gives you a complete dashboard to manage users, payments, and analytics.</p><div class="flex justify-center gap-4"><button class="bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold shadow-xl shadow-indigo-200">Start Free Trial</button></div><div class="mt-16 rounded-2xl overflow-hidden border border-slate-200 shadow-2xl"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80" class="w-full"></div></header></body></html>`
-            },
-            'agency': {
-                title: 'Macro Agency', tag: 'Creative', color: 'green',
-                desc: 'Maximalist, brutalist design for high-end creative agencies.',
-                code: `<!DOCTYPE html><html lang="en"><head><script src="https://cdn.tailwindcss.com"><\/script><link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet"><script>tailwind.config={theme:{extend:{fontFamily:{display:['Syne'],body:['Inter']},colors:{neon:'#ccff00'}}}}<\/script><style>body{background:#050505;color:#fff}::-webkit-scrollbar{width:0px}</style></head><body class="font-body"><header class="fixed w-full z-50 p-6 flex justify-between mix-blend-difference"><span class="font-display font-bold text-3xl uppercase">Macro<span class="text-neon">.</span></span><button class="bg-white text-black rounded-full px-6 py-2 font-bold uppercase text-sm hover:bg-neon">Menu</button></header><section class="min-h-screen flex flex-col justify-center px-6"><h1 class="font-display font-extrabold text-[12vw] leading-[0.85] tracking-tighter uppercase">We Create<br><span class="text-neon">Digital</span><br>Chaos.</h1></section><div class="bg-neon text-black py-4 overflow-hidden"><div class="whitespace-nowrap font-display font-bold text-4xl uppercase">Strategy — Branding — Development — Strategy — Branding —</div></div><section class="py-32 px-6"><div class="border-b border-white/20 pb-4 mb-12 flex justify-between"><span class="font-mono text-neon">(01)</span><span class="font-mono">SELECTED WORKS</span></div><div class="space-y-12"><div class="group border-b border-white/20 py-8"><h3 class="font-display text-6xl md:text-8xl font-bold uppercase group-hover:text-neon transition">Nike Air</h3></div><div class="group border-b border-white/20 py-8"><h3 class="font-display text-6xl md:text-8xl font-bold uppercase group-hover:text-neon transition">Spotify</h3></div></div></section></body></html>`
-            },
-            'portfolio': {
-                title: 'DevFolio Pro', tag: 'Portfolio', color: 'purple',
-                desc: 'Clean, dark-mode portfolio perfect for developers and engineers.',
-                code: `<!DOCTYPE html><html lang="en"><head><script src="https://cdn.tailwindcss.com"><\/script><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet"><style>body{font-family:'Space Grotesk',sans-serif}</style></head><body class="bg-black text-white antialiased"><main class="max-w-3xl mx-auto px-6 py-24"><header class="flex justify-between items-center mb-24"><h1 class="text-2xl font-bold tracking-tighter">Alex.dev</h1><a href="#" class="text-zinc-400 hover:text-white underline">Contact</a></header><section class="mb-24"><h2 class="text-5xl font-bold leading-tight mb-8">I build digital products that <span class="text-zinc-500">solve real problems.</span></h2><p class="text-xl text-zinc-400">Senior Frontend Engineer. React, Next.js, and Design Systems.</p></section><section class="space-y-12"><div class="group cursor-pointer"><div class="rounded-xl bg-zinc-900 aspect-[16/9] mb-6 border border-white/10 overflow-hidden"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition"></div><div class="flex justify-between"><h4 class="text-2xl font-bold">Finance App</h4><span class="text-zinc-500">2024</span></div></div><div class="group cursor-pointer"><div class="rounded-xl bg-zinc-900 aspect-[16/9] mb-6 border border-white/10 overflow-hidden"><img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1200&q=80" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition"></div><div class="flex justify-between"><h4 class="text-2xl font-bold">Dev Blog</h4><span class="text-zinc-500">2023</span></div></div></section></main></body></html>`
-            },
-            'crypto': {
-                title: 'Crypto Dark', tag: 'Web3', color: 'indigo',
-                desc: 'Futuristic Web3 landing page with glowing effects.',
-                code: `<!DOCTYPE html><html lang="en"><head><script src="https://cdn.tailwindcss.com"><\/script></head><body class="bg-slate-900 text-white"><nav class="flex justify-between p-6"><span class="font-mono text-cyan-400 font-bold text-xl">CRYPTO.X</span><button class="border border-cyan-400 text-cyan-400 px-6 py-2 rounded hover:bg-cyan-400 hover:text-black transition font-bold">Connect Wallet</button></nav><div class="text-center mt-32 px-6 relative"><div class="w-64 h-64 bg-cyan-500 blur-[120px] rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 opacity-50"></div><h1 class="text-6xl md:text-8xl font-bold mb-8">The Future of <span class="text-cyan-400">Web3</span></h1><p class="text-slate-300 mb-10 text-xl">Decentralized trading for everyone. Fast, secure, and gas-free.</p><div class="flex justify-center gap-4"><button class="bg-cyan-400 text-black font-bold px-10 py-4 rounded-lg hover:bg-cyan-300">Start Trading</button></div></div></body></html>`
-            },
-            'ecom': {
-                title: 'Luxe Store', tag: 'E-Commerce', color: 'pink',
-                desc: 'Minimalist fashion store product page.',
-                code: `<!DOCTYPE html><html lang="en"><head><script src="https://cdn.tailwindcss.com"><\/script></head><body class="bg-white text-black"><nav class="p-6 border-b flex justify-between items-center"><span class="font-bold tracking-tighter text-2xl">LUXE.</span><span class="text-sm font-bold">CART (0)</span></nav><div class="grid md:grid-cols-2 min-h-screen"><div class="bg-stone-100 flex items-center justify-center p-10"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80" class="shadow-2xl max-h-[600px]"></div><div class="p-12 md:p-24 flex flex-col justify-center"><h1 class="text-5xl font-serif mb-4">The Silk Edition</h1><p class="text-2xl mb-8">$145.00</p><p class="text-gray-500 mb-12 leading-relaxed text-lg">Crafted from 100% premium silk. Designed in Milan. A timeless piece for the modern wardrobe.</p><button class="bg-black text-white py-5 w-full uppercase tracking-widest text-sm font-bold hover:bg-gray-800 transition">Add to Cart</button></div></div></body></html>`
-            },
-            'dashboard': {
-                title: 'Admin Dash', tag: 'App', color: 'orange',
-                desc: 'Responsive sidebar dashboard layout.',
-                code: `<!DOCTYPE html><html lang="en"><head><script src="https://cdn.tailwindcss.com"><\/script></head><body class="bg-gray-50 flex h-screen"><aside class="w-64 bg-white border-r p-6 hidden md:block"><div class="font-bold text-2xl mb-12 text-indigo-600">Dash.</div><div class="space-y-2 text-gray-600 font-medium"><div class="text-indigo-600 bg-indigo-50 p-3 rounded-lg">Overview</div><div class="p-3 hover:bg-gray-100 rounded-lg cursor-pointer">Analytics</div><div class="p-3 hover:bg-gray-100 rounded-lg cursor-pointer">Customers</div><div class="p-3 hover:bg-gray-100 rounded-lg cursor-pointer">Settings</div></div></aside><main class="flex-1 p-8 md:p-12 overflow-y-auto"><header class="flex justify-between mb-8"><h1 class="text-3xl font-bold">Dashboard</h1><div class="w-10 h-10 bg-indigo-600 rounded-full"></div></header><div class="grid md:grid-cols-3 gap-6 mb-8"><div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"><div class="text-gray-400 text-sm font-medium mb-2">Total Revenue</div><div class="text-3xl font-bold">$42,400</div></div><div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"><div class="text-gray-400 text-sm font-medium mb-2">Active Users</div><div class="text-3xl font-bold">1,240</div></div><div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100"><div class="text-gray-400 text-sm font-medium mb-2">Growth</div><div class="text-3xl font-bold text-green-500">+12.5%</div></div></div><div class="bg-white h-64 rounded-2xl border border-gray-100 flex items-center justify-center text-gray-300">Chart Placeholder</div></main></body></html>`
-            }
-        };
+        // --- TEMPLATE GENERATOR ---
+        // Helper function to create BIG HTML templates so we don't bloat the file with 25 manual strings
+        const createHTML = (title, content) => `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${title}</title><script src="https://cdn.tailwindcss.com"><\/script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"><style>body{font-family:'Inter',sans-serif}</style></head>${content}</html>`;
 
-        // --- 2. LOGIC ---
+        // --- THE 25 TEMPLATES ---
+        const templatesData = [
+            // 1. SaaS
+            {
+                id: 'saas-1', title: 'SaaS Elevate', category: 'SaaS', color: 'blue', desc: 'Conversion-focused landing page for startups.',
+                code: createHTML('SaaS Elevate', `<body class="bg-white text-slate-900"><nav class="border-b py-4 px-6 flex justify-between items-center"><span class="font-bold text-xl text-blue-600">Elevate.</span><button class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold">Get Started</button></nav><header class="text-center py-20 px-6"><h1 class="text-6xl font-bold mb-6">Scale your business.</h1><p class="text-xl text-slate-500 mb-8">The ultimate toolkit for growth.</p><div class="flex justify-center gap-4"><button class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold">Start Free</button><button class="border px-8 py-3 rounded-xl font-bold">Demo</button></div></header><footer class="bg-slate-50 py-12 text-center text-slate-400 mt-20">© 2024 Elevate Inc.</footer></body>`)
+            },
+            {
+                id: 'saas-2', title: 'SaaS Dark', category: 'SaaS', color: 'blue', desc: 'Dark mode version for modern dev tools.',
+                code: createHTML('SaaS Dark', `<body class="bg-slate-900 text-white"><nav class="border-b border-slate-800 py-4 px-6 flex justify-between"><span class="font-bold text-xl">DevTool.</span><button class="bg-white text-black px-4 py-2 rounded font-bold">Login</button></nav><header class="text-center py-32"><h1 class="text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Code Faster.</h1><p class="text-slate-400 text-xl">The developer platform you need.</p></header></body>`)
+            },
+            {
+                id: 'saas-3', title: 'Enterprise Hub', category: 'SaaS', color: 'blue', desc: 'Corporate style for B2B software.',
+                code: createHTML('Enterprise', `<body class="bg-slate-50 text-slate-800"><nav class="bg-white border-b py-4 px-8 flex justify-between"><span class="font-bold text-xl tracking-widest text-slate-900">CORP</span></nav><header class="grid md:grid-cols-2 gap-12 p-12 items-center"><div class="space-y-6"><h1 class="text-5xl font-bold">Enterprise Solutions.</h1><button class="bg-slate-900 text-white px-6 py-3 rounded">Contact Sales</button></div><div class="bg-slate-200 h-96 rounded-xl"></div></header></body>`)
+            },
+            
+            // 2. Portfolio
+            {
+                id: 'port-1', title: 'DevFolio Pro', category: 'Portfolio', color: 'purple', desc: 'Minimalist dark portfolio for coders.',
+                code: createHTML('DevFolio', `<body class="bg-black text-white"><main class="max-w-3xl mx-auto py-24 px-6"><h1 class="text-5xl font-bold mb-4">John Doe.</h1><p class="text-zinc-400 text-xl mb-12">Full Stack Developer.</p><div class="space-y-6"><div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800"><h3 class="font-bold text-xl">Project A</h3><p class="text-zinc-500">React & Node.js</p></div><div class="bg-zinc-900 p-6 rounded-xl border border-zinc-800"><h3 class="font-bold text-xl">Project B</h3><p class="text-zinc-500">Next.js & Tailwind</p></div></div></main></body>`)
+            },
+            {
+                id: 'port-2', title: 'Designer CV', category: 'Portfolio', color: 'purple', desc: 'Visual grid layout for designers.',
+                code: createHTML('Design CV', `<body class="bg-white text-black"><header class="p-12 text-center"><h1 class="text-6xl font-serif mb-2">Sarah.Design</h1><p class="text-gray-500 uppercase tracking-widest">Visual Artist</p></header><div class="grid md:grid-cols-2 gap-4 px-4 pb-12"><div class="bg-gray-100 aspect-square"></div><div class="bg-gray-100 aspect-square"></div><div class="bg-gray-100 aspect-square"></div><div class="bg-gray-100 aspect-square"></div></div></body>`)
+            },
+            {
+                id: 'port-3', title: 'Bento Grid', category: 'Portfolio', color: 'purple', desc: 'Trendy grid layout for personal sites.',
+                code: createHTML('Bento', `<body class="bg-zinc-950 text-white p-4 h-screen flex items-center justify-center"><div class="max-w-4xl w-full grid grid-cols-3 gap-4 h-[600px]"><div class="col-span-2 row-span-2 bg-zinc-900 rounded-3xl border border-zinc-800 p-8">Big Feature</div><div class="bg-blue-600 rounded-3xl p-6">Socials</div><div class="bg-zinc-900 rounded-3xl border border-zinc-800 p-6">Contact</div><div class="col-span-3 bg-zinc-900 rounded-3xl border border-zinc-800 p-6">Footer / Skills</div></div></body>`)
+            },
+
+            // 3. Agency
+            {
+                id: 'ag-1', title: 'Macro Agency', category: 'Agency', color: 'green', desc: 'Brutalist, big typography design.',
+                code: createHTML('Macro', `<body class="bg-stone-100 text-black"><header class="p-6 border-b border-black font-bold flex justify-between"><span>MACRO</span><span>EST. 2024</span></header><main class="p-6 pt-32"><h1 class="text-9xl font-black leading-none uppercase">We Make<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-600">Noise.</span></h1></main></body>`)
+            },
+            {
+                id: 'ag-2', title: 'Creative Studio', category: 'Agency', color: 'green', desc: 'Elegant studio layout with nice spacing.',
+                code: createHTML('Studio', `<body class="bg-white text-slate-900"><nav class="p-8 flex justify-between font-bold"><span>STUDIO</span><span>MENU</span></nav><section class="h-screen flex items-center justify-center text-center"><h1 class="text-6xl font-light italic">"Design is intelligence<br>made visible."</h1></section></body>`)
+            },
+            {
+                id: 'ag-3', title: 'Marketing Pro', category: 'Agency', color: 'green', desc: 'High-trust layout for SEO agencies.',
+                code: createHTML('SEO Pro', `<body class="bg-blue-50 text-blue-900"><header class="bg-blue-600 text-white p-20 text-center"><h1 class="text-5xl font-bold mb-4">Grow Your Traffic.</h1><button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold">Get Audit</button></header><section class="grid md:grid-cols-3 gap-8 p-12 max-w-6xl mx-auto"><div class="bg-white p-8 rounded-xl shadow-lg h-64">Strategy</div><div class="bg-white p-8 rounded-xl shadow-lg h-64">SEO</div><div class="bg-white p-8 rounded-xl shadow-lg h-64">Content</div></section></body>`)
+            },
+
+            // 4. E-Commerce
+            {
+                id: 'ecom-1', title: 'Luxe Store', category: 'E-Commerce', color: 'pink', desc: 'Product page for luxury goods.',
+                code: createHTML('Luxe', `<body class="bg-white"><nav class="p-6 flex justify-between font-bold"><span>LUXE.</span><span>CART (0)</span></nav><div class="grid md:grid-cols-2 h-screen"><div class="bg-stone-100 flex items-center justify-center">Image</div><div class="p-20 flex flex-col justify-center"><h1 class="text-4xl font-serif">Classic Tee</h1><p class="text-xl mt-4 mb-8">$45.00</p><button class="bg-black text-white w-full py-4 font-bold">ADD TO CART</button></div></div></body>`)
+            },
+            {
+                id: 'ecom-2', title: 'Tech Shop', category: 'E-Commerce', color: 'pink', desc: 'Grid layout for electronics.',
+                code: createHTML('TechShop', `<body class="bg-gray-50"><nav class="bg-white p-4 shadow-sm font-bold">TechShop</nav><main class="p-8 max-w-6xl mx-auto"><h1 class="text-3xl font-bold mb-8">New Arrivals</h1><div class="grid grid-cols-2 md:grid-cols-4 gap-6"><div class="bg-white p-4 rounded-xl shadow-sm h-64"></div><div class="bg-white p-4 rounded-xl shadow-sm h-64"></div><div class="bg-white p-4 rounded-xl shadow-sm h-64"></div><div class="bg-white p-4 rounded-xl shadow-sm h-64"></div></div></main></body>`)
+            },
+            {
+                id: 'ecom-3', title: 'Checkout Flow', category: 'E-Commerce', color: 'pink', desc: 'Clean checkout form component.',
+                code: createHTML('Checkout', `<body class="bg-gray-50 p-12"><div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-sm"><h2 class="text-2xl font-bold mb-6">Checkout</h2><div class="grid gap-4"><input class="border p-3 rounded" placeholder="Email"><input class="border p-3 rounded" placeholder="Card Number"><div class="grid grid-cols-2 gap-4"><input class="border p-3 rounded" placeholder="MM/YY"><input class="border p-3 rounded" placeholder="CVC"></div><button class="bg-blue-600 text-white py-3 rounded font-bold mt-4">Pay Now</button></div></div></body>`)
+            },
+
+            // 5. App / Dashboard
+            {
+                id: 'app-1', title: 'Admin Dash', category: 'App', color: 'orange', desc: 'Sidebar layout with stats.',
+                code: createHTML('Dashboard', `<body class="bg-gray-100 flex h-screen"><aside class="w-64 bg-white p-6 hidden md:block"><div class="font-bold text-xl mb-8 text-indigo-600">Dash.</div><div class="space-y-4 text-gray-600"><div>Home</div><div>Stats</div><div>Settings</div></div></aside><main class="flex-1 p-8"><h1 class="text-2xl font-bold mb-6">Overview</h1><div class="grid md:grid-cols-3 gap-6"><div class="bg-white p-6 rounded-xl shadow-sm h-32">Revenue</div><div class="bg-white p-6 rounded-xl shadow-sm h-32">Users</div><div class="bg-white p-6 rounded-xl shadow-sm h-32">Growth</div></div></main></body>`)
+            },
+            {
+                id: 'app-2', title: 'Settings UI', category: 'App', color: 'orange', desc: 'User settings form layout.',
+                code: createHTML('Settings', `<body class="bg-gray-50 p-12"><div class="max-w-2xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden"><div class="p-6 border-b"><h2 class="font-bold text-xl">Profile Settings</h2></div><div class="p-6 space-y-4"><div class="flex items-center gap-4"><div class="w-16 h-16 bg-gray-200 rounded-full"></div><button class="text-blue-600 font-bold">Change Avatar</button></div><input class="w-full border p-3 rounded" value="John Doe"><input class="w-full border p-3 rounded" value="john@example.com"><button class="bg-black text-white px-6 py-2 rounded">Save</button></div></div></body>`)
+            },
+            {
+                id: 'app-3', title: 'Kanban Board', category: 'App', color: 'orange', desc: 'Trello-style drag and drop layout.',
+                code: createHTML('Kanban', `<body class="bg-blue-600 p-8 h-screen overflow-x-auto"><div class="flex gap-6 h-full"><div class="w-72 bg-gray-100 rounded-xl p-4 flex-shrink-0"><h3 class="font-bold mb-4 text-gray-700">To Do</h3><div class="bg-white p-3 rounded shadow-sm mb-2">Task 1</div><div class="bg-white p-3 rounded shadow-sm">Task 2</div></div><div class="w-72 bg-gray-100 rounded-xl p-4 flex-shrink-0"><h3 class="font-bold mb-4 text-gray-700">In Progress</h3><div class="bg-white p-3 rounded shadow-sm">Task 3</div></div><div class="w-72 bg-gray-100 rounded-xl p-4 flex-shrink-0"><h3 class="font-bold mb-4 text-gray-700">Done</h3></div></div></body>`)
+            },
+            {
+                id: 'app-4', title: 'Chat UI', category: 'App', color: 'orange', desc: 'Messaging interface component.',
+                code: createHTML('Chat', `<body class="bg-gray-100 h-screen flex items-center justify-center"><div class="w-full max-w-md bg-white h-[600px] rounded-2xl shadow-xl flex flex-col"><div class="p-4 border-b font-bold bg-gray-50 rounded-t-2xl">Sarah (Online)</div><div class="flex-1 p-4 space-y-4 overflow-y-auto"><div class="flex justify-end"><div class="bg-blue-500 text-white p-3 rounded-l-xl rounded-tr-xl">Hey!</div></div><div class="flex justify-start"><div class="bg-gray-100 p-3 rounded-r-xl rounded-tl-xl">Hi there!</div></div></div><div class="p-4 border-t"><input class="w-full bg-gray-100 p-3 rounded-full" placeholder="Type a message..."></div></div></body>`)
+            },
+
+            // 6. Components / Misc
+            {
+                id: 'comp-1', title: 'Login Modern', category: 'App', color: 'red', desc: 'Split screen authentication page.',
+                code: createHTML('Login', `<body class="grid md:grid-cols-2 h-screen"><div class="flex items-center justify-center p-12"><div class="w-full max-w-sm space-y-4"><h1 class="text-3xl font-bold mb-8">Welcome Back</h1><input class="w-full border p-3 rounded" placeholder="Email"><input class="w-full border p-3 rounded" placeholder="Password"><button class="w-full bg-blue-600 text-white py-3 rounded font-bold">Sign In</button></div></div><div class="bg-blue-600 hidden md:block"></div></body>`)
+            },
+            {
+                id: 'comp-2', title: 'Pricing Table', category: 'SaaS', color: 'yellow', desc: '3-column pricing comparison.',
+                code: createHTML('Pricing', `<body class="bg-slate-900 text-white py-20 px-6"><div class="text-center mb-16"><h1 class="text-3xl font-bold">Pricing</h1></div><div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto"><div class="bg-slate-800 p-8 rounded-xl">Free</div><div class="bg-blue-600 p-8 rounded-xl scale-105 shadow-2xl">Pro</div><div class="bg-slate-800 p-8 rounded-xl">Enterprise</div></div></body>`)
+            },
+            {
+                id: 'comp-3', title: 'Blog Post', category: 'Agency', color: 'teal', desc: 'Typography optimized article layout.',
+                code: createHTML('Blog', `<body class="bg-white text-gray-800 max-w-2xl mx-auto px-6 py-12 leading-relaxed"><h1 class="text-4xl font-bold mb-4">The Future of Design</h1><div class="flex gap-2 text-gray-500 text-sm mb-8"><span>Oct 12</span><span>•</span><span>5 min read</span></div><p class="mb-4 text-lg">Lorem ipsum dolor sit amet...</p><p class="text-lg">Consectetur adipiscing elit.</p></body>`)
+            },
+            {
+                id: 'comp-4', title: '404 Error', category: 'App', color: 'red', desc: 'A clean "Page Not Found" template.',
+                code: createHTML('404', `<body class="bg-white h-screen flex flex-col items-center justify-center text-center p-6"><h1 class="text-9xl font-bold text-gray-200">404</h1><h2 class="text-3xl font-bold mt-4">Page Not Found</h2><p class="text-gray-500 mt-2 mb-8">Oops! The page you are looking for does not exist.</p><button class="bg-black text-white px-6 py-3 rounded-full font-bold">Go Home</button></body>`)
+            },
+            {
+                id: 'comp-5', title: 'Coming Soon', category: 'SaaS', color: 'blue', desc: 'Waitlist page with email capture.',
+                code: createHTML('Waitlist', `<body class="bg-black text-white h-screen flex flex-col items-center justify-center p-6 text-center"><span class="text-purple-400 font-bold tracking-widest text-xs mb-4">LAUNCHING SOON</span><h1 class="text-5xl font-bold mb-6">Something Epic.</h1><div class="flex w-full max-w-sm gap-2"><input class="flex-1 bg-zinc-900 border border-zinc-800 rounded px-4" placeholder="Email"><button class="bg-white text-black px-6 py-3 rounded font-bold">Join</button></div></body>`)
+            },
+            {
+                id: 'comp-6', title: 'Crypto Land', category: 'Agency', color: 'indigo', desc: 'Web3 style landing page.',
+                code: createHTML('Crypto', `<body class="bg-slate-900 text-white"><nav class="p-6 flex justify-between"><span class="font-bold text-cyan-400">CRYPTO</span><button class="border border-cyan-400 text-cyan-400 px-4 py-1 rounded">Connect</button></nav><main class="text-center mt-20"><h1 class="text-6xl font-bold mb-4">Web3 Future</h1><button class="bg-cyan-400 text-black px-8 py-3 rounded-lg font-bold mt-8">Explore</button></main></body>`)
+            },
+            {
+                id: 'comp-7', title: 'Testimonials', category: 'Agency', color: 'teal', desc: 'Grid of user reviews.',
+                code: createHTML('Reviews', `<body class="bg-white py-20 px-6"><h2 class="text-center text-3xl font-bold mb-12">Loved by thousands</h2><div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto"><div class="bg-gray-50 p-6 rounded-xl">"Amazing tool!"</div><div class="bg-gray-50 p-6 rounded-xl">"Highly recommend."</div><div class="bg-gray-50 p-6 rounded-xl">"Best in class."</div></div></body>`)
+            },
+            {
+                id: 'comp-8', title: 'Newsletter', category: 'SaaS', color: 'blue', desc: 'Simple popup style subscription.',
+                code: createHTML('Newsletter', `<body class="bg-gray-100 h-screen flex items-center justify-center p-6"><div class="bg-white p-12 rounded-2xl shadow-xl text-center max-w-md"><h2 class="text-2xl font-bold mb-2">Subscribe</h2><p class="text-gray-500 mb-6">Get the latest updates delivered.</p><input class="w-full border p-3 rounded mb-4" placeholder="Enter email"><button class="w-full bg-blue-600 text-white py-3 rounded font-bold">Subscribe</button></div></body>`)
+            },
+             {
+                id: 'comp-9', title: 'Docs Sidebar', category: 'App', color: 'orange', desc: 'Documentation layout.',
+                code: createHTML('Docs', `<body class="flex h-screen"><div class="w-64 bg-gray-50 border-r p-6 hidden md:block space-y-2"><div class="font-bold mb-4">Docs</div><div class="text-blue-600">Introduction</div><div>Installation</div><div>Usage</div></div><div class="flex-1 p-12"><h1 class="text-4xl font-bold mb-6">Introduction</h1><p class="text-lg text-gray-600">Welcome to the documentation.</p></div></body>`)
+            }
+        ];
+
+        // --- APP LOGIC ---
         
-        // Render Grid
         const gridContainer = document.getElementById('gridContainer');
-        
+        let currentCategory = 'All';
+
         function renderGrid(filterText = '') {
             gridContainer.innerHTML = '';
             let count = 0;
             
-            Object.entries(templatesData).forEach(([key, t]) => {
-                // Search Filter Logic
-                if(t.title.toLowerCase().includes(filterText.toLowerCase()) || t.tag.toLowerCase().includes(filterText.toLowerCase())) {
-                    
+            templatesData.forEach(t => {
+                const matchesSearch = t.title.toLowerCase().includes(filterText.toLowerCase()) || t.category.toLowerCase().includes(filterText.toLowerCase());
+                const matchesCategory = currentCategory === 'All' || t.category === currentCategory;
+
+                if (matchesSearch && matchesCategory) {
                     const card = `
-                        <div onclick="openPreview('${key}')" class="group cursor-pointer card-hover block bg-zinc-900 border border-white/5 rounded-2xl p-6 transition-all duration-300 h-full flex flex-col">
-                            <div class="h-48 bg-zinc-800 rounded-xl mb-5 flex items-center justify-center border border-white/5 group-hover:border-white/10 relative overflow-hidden">
-                                <span class="text-3xl font-bold text-zinc-700 group-hover:text-zinc-500 transition">${t.title}</span>
+                        <div onclick="openPreview('${t.id}')" class="group cursor-pointer card-hover block bg-zinc-900 border border-white/5 rounded-2xl p-6 transition-all duration-300 h-full flex flex-col">
+                            <div class="h-40 bg-zinc-800 rounded-xl mb-5 flex items-center justify-center border border-white/5 group-hover:border-white/10 relative overflow-hidden">
+                                <span class="text-2xl font-bold text-zinc-700 group-hover:text-zinc-500 transition">${t.title}</span>
                                 <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center backdrop-blur-sm">
                                     <span class="bg-white text-black px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition duration-300">
                                         <i data-lucide="eye" class="w-4 h-4"></i> Preview
@@ -197,8 +267,8 @@
                                 </div>
                             </div>
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-xl text-white">${t.title}</h3>
-                                <span class="text-[10px] font-bold uppercase text-${t.color}-400 bg-${t.color}-500/10 px-2 py-1 rounded border border-${t.color}-500/20">${t.tag}</span>
+                                <h3 class="font-bold text-lg text-white">${t.title}</h3>
+                                <span class="text-[10px] font-bold uppercase text-${t.color}-400 bg-${t.color}-500/10 px-2 py-1 rounded border border-${t.color}-500/20">${t.category}</span>
                             </div>
                             <p class="text-zinc-400 text-sm leading-relaxed">${t.desc}</p>
                         </div>
@@ -208,21 +278,32 @@
                 }
             });
 
-            // Show "No Results" message
             const noRes = document.getElementById('noResults');
-            if(count === 0) noRes.classList.remove('hidden');
-            else noRes.classList.add('hidden');
-
+            noRes.style.display = count === 0 ? 'block' : 'none';
             lucide.createIcons();
         }
 
-        // Functions
+        function setCategory(cat) {
+            currentCategory = cat;
+            
+            // Update Active Button Style
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.innerText === cat) {
+                    btn.classList.add('active');
+                    btn.classList.remove('text-zinc-400');
+                } else {
+                    btn.classList.remove('active');
+                    btn.classList.add('text-zinc-400');
+                }
+            });
+            renderGrid(document.getElementById('searchInput').value);
+        }
+
         function openPreview(id) {
-            const data = templatesData[id];
+            const data = templatesData.find(t => t.id === id);
             document.getElementById('previewTitle').innerText = data.title;
             document.getElementById('previewFrame').srcdoc = data.code;
             document.getElementById('codeArea').value = data.code.trim();
-            
             document.getElementById('galleryView').classList.add('hidden');
             document.getElementById('previewView').classList.remove('hidden');
         }
@@ -236,7 +317,6 @@
         function toggleCodePanel() {
             const panel = document.getElementById('codePanel');
             const btnText = document.getElementById('btnText');
-            
             if (panel.classList.contains('hidden')) {
                 panel.classList.remove('hidden');
                 btnText.innerText = "Close Code";
@@ -247,13 +327,11 @@
         }
 
         function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobileMenu').classList.toggle('hidden');
         }
 
         function filterTemplates() {
-            const val = document.getElementById('searchInput').value;
-            renderGrid(val);
+            renderGrid(document.getElementById('searchInput').value);
         }
 
         function copyCode() {
@@ -266,7 +344,6 @@
         // Init
         renderGrid();
         lucide.createIcons();
-
     </script>
 </body>
 </html>
